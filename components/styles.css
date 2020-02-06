@@ -73,10 +73,17 @@ h2 {
 
 .legendText {
     fill: #cccbcb;
-    font-size: 0.6em;
+    font-size: calc(0.2em + 0.5vw);
+}
+
+#legendLabel {
+    position: absolute;
+    top: 16vh;
+    width: 10vw;
+    right: 0vw;
+    animation: fadeIn 0.5s linear 1.5s 1 both;
 }
 
 .regions {
-    stroke: #777f86;
-    fill: none;
+    stroke: none;
 }
