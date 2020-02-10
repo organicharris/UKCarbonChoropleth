@@ -14,16 +14,34 @@
         color: #cccbcb;
     }
     100% {
-        color: #2b8cbe;
+        color: #CC4952;
     }
 }
 
 @keyframes linkNotHover {
     0% {
-        color: #2b8cbe;
+        color: #CC4952;
     }
     100% {
         color: #cccbcb;
+    }
+}
+
+@keyframes siteHover {
+    0% {
+        color: #0b5164;
+    }
+    100% {
+        color: #CC4952;
+    }
+}
+
+@keyframes siteNotHover {
+    0% {
+        color: #CC4952;
+    }
+    100% {
+        color: #0b5164;
     }
 }
 
@@ -43,12 +61,40 @@ body {
     color: #cccbcb;
 }
 
-h1 {
-    font-size: calc(1.5em + 0.5vw);
+#links {
+    animation: fadeIn 1s linear 1s 1 both;
 }
 
-h2 {
-    font-size: calc(1em + 0.5vw);
+#homepage, #gitHub {
+    position: absolute;
+    top: 2vh;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: #0b5164;
+}
+
+#homepage:hover, #gitHub:hover {
+    animation: siteHover 1s linear 0s 1 both;
+}
+
+#homepage:not(:hover), #gitHub:not(:hover) {
+    animation: siteNotHover 1s linear 0s 1 both;
+}
+
+#homepage {
+    left: 2vw;
+    font-size: calc(0.8em + 0.5vw);
+}
+
+#gitHub {
+    right: 2vw;
+    font-size: calc(1.2em + 0.5vw);
+}
+
+h1 {
+    margin: 5vh auto 2vh;
+    width: 60vw;
+    font-size: calc(1.3em + 0.5vw);
 }
 
 #tooltipBackground {
@@ -95,6 +141,7 @@ h2 {
     left: 5vw;
     padding: 1vh 1vw;
     font-size: calc(0.6em + 0.5vw);
+    animation: fadeIn 0.5s linear 2s 1 both;
 }
 
 #slider {
@@ -130,13 +177,31 @@ h2 {
     cursor: pointer;
 }
 
+#barChart {
+    position: absolute;
+    bottom: 2vh;
+    left: 2vw;
+    opacity: 0;
+    width: 40vw;
+    height: 40vh;
+}
+
 footer {
     position: absolute;
     bottom: 0;
     right: 5vw;
+    animation: fadeIn 1s linear 1s 1 both;
 }
 
 footer a {
     text-decoration: none;
     color: #cccbcb;
+}
+
+footer a:hover {
+    animation: linkHover 1s linear 0s 1 both;
+}
+
+footer a:not(:hover) {
+    animation: linkNotHover 1s linear 0s 1 both;
 }

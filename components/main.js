@@ -2,6 +2,9 @@
 // Colours for maps (from colorbrewer2.org)
 const colorBrewer = ['#d73027','#f46d43','#fdae61','#fee08b','#ffffbf','#d9ef8b','#a6d96a','#66bd63','#1a9850'].reverse();
 
+// Colours for bar chart
+const chartColours = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6'];
+
 const width = 960;
 const height = 600;
 
@@ -62,6 +65,9 @@ const path = d3.geoPath()
 // Select legend SVG area
 const legend = d3.select("#legend");
 
+// Select bar chart SVG area
+const barChart = d3.select("#barChart");
+
 // Select time and date display area
 const timeDisplay = document.getElementById("timeDisplay");
 const dateDisplay = d3.select("#dateDisplay");
@@ -116,10 +122,10 @@ function plotData() {
     Promise.all(promises).then(value => { // Once all promises are loaded...
         // Create scale for data
         const carbonDataset = value[1].data[carbonArrayIndex].regions;
-        const scaleMin = d3.min(carbonDataset, d => d.intensity.forecast);
-        const scaleMax = d3.max(carbonDataset, d => d.intensity.forecast);
+        const carbonScaleMin = d3.min(carbonDataset, d => d.intensity.forecast);
+        const carbonScaleMax = d3.max(carbonDataset, d => d.intensity.forecast);
         const carbonScale = d3.scaleLinear()
-                .domain([scaleMin,scaleMax])
+                .domain([carbonScaleMin,carbonScaleMax])
                 .range([0, 9]); // Fits with index of colour in array
         map.append("g") // Append regions
             .selectAll("path")
@@ -131,23 +137,19 @@ function plotData() {
             .attr("id", d => d.properties.name)
             .style("animation", (d,i) => "fadeIn 0.5s linear " + (0.5 + (i / 10)) + "s 1 both")
             .style("fill", mapD => {
-                if (mapD.properties.name === "Northern Ireland") {
-                    return "#515457";
-                } else {
-                    // Format shortname correctly
-                    let comparison = correctShortname(mapD.properties.name);
-                    
-                    const match = carbonDataset.filter(carbonD => carbonD.shortname === comparison); // Filter dataset to match shortname
-                    if (match.length > 0) {
-                        const roundedIndex = Math.round(carbonScale(match[0].intensity.forecast));
-                        if (roundedIndex > 8) { // Removes round-up to 9
-                            return colorBrewer[roundedIndex - 1];
-                        } else {
-                            return colorBrewer[roundedIndex];
-                        };
+                // Format shortname correctly
+                let comparison = correctShortname(mapD.properties.name);
+                
+                const match = carbonDataset.filter(carbonD => carbonD.shortname === comparison); // Filter dataset to match shortname
+                if (match.length > 0) {
+                    const roundedIndex = Math.round(carbonScale(match[0].intensity.forecast));
+                    if (roundedIndex > 8) { // Removes round-up to 9
+                        return colorBrewer[roundedIndex - 1];
                     } else {
-                        console.log("Couldn't find data for " + comparison);
+                        return colorBrewer[roundedIndex];
                     };
+                } else {
+                    console.log("Couldn't find data for " + comparison);
                 };
             })
             // Shows tooltip
@@ -157,32 +159,59 @@ function plotData() {
                     .duration(200)
                     .style("opacity", 0.9)
                     .style("left", (d3.event.pageX + 50) + "px")
-                    .style("top", (d3.event.pageY - 30) + "px")
+                    .style("top", (d3.event.pageY - 30) + "px");
                 tooltipText.transition()
                     .duration(200)
                     .style("opacity", 1);
                 tooltipText.html(function() {
                     let comparison = correctShortname(mapD.properties.name);
                     const match = carbonDataset.filter(carbonD => carbonD.shortname === comparison); // Filter dataset to match shortname
-                    if (mapD.properties.name === "Northern Ireland") { // If Northern Ireland, advise no data
-                        return "<span>" + mapD.properties.name + ":</span><br /><span>There is no data for this region.</span>" 
-                    } else {
-                        let returnValue = "<span>" + mapD.properties.name + ": </span><br /><span>" + match[0].intensity.forecast + "gCO<sub>2</sub>/kWh</span><br />";
-                        for (let i = 0; i < match[0].generationmix.length; i++) {
-                            returnValue = returnValue + "<span>" + match[0].generationmix[i].fuel + ": " + match[0].generationmix[i].perc + "&#37;</span><br />";
-                        };
-                        return returnValue;
-                    };
+                    return "<span>" + mapD.properties.name + ": </span><br /><span>" + match[0].intensity.forecast + "gCO<sub>2</sub>/kWh</span><br />";
                 });
+                // Shows bar chart
+                barChart.transition()
+                    .duration(200)
+                    .style("opacity", 1);
+                barChart.selectAll("rect")
+                    .data(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix)
+                    .enter()
+                    .append("rect")
+                    .attr("width", d => {
+                        let percScale = d3.scaleLinear()
+                        .domain([d3.min(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix, d => d.perc), d3.max(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix, d => d.perc)])
+                        .range([0, 250]);
+                        return percScale(d.perc);
+                    })
+                    .attr("height", 25)
+                    .attr("y", (d, i) => (i * 30))
+                    .attr("x", 10)
+                    .style("fill", (d, i) => chartColours[i]);
+                barChart.selectAll("text")
+                    .data(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix)
+                    .enter()
+                    .append("text")
+                    .attr("y", (d, i) => 18 + (i * 30))
+                    .attr("x", 270)
+                    .style("fill", "#cccbcb")
+                    .style("Font-size", "calc(0.4em + 0.5vw")
+                    .text(d => d.fuel + ": " + d.perc + "%");
             })
+
             // Hides tooltip
             .on("mouseout", d => {
                 tooltipBackground.transition()
                     .duration(200)
-                    .style("opacity", 0)
+                    .style("opacity", 0);
                 tooltipText.transition()
                     .duration(200)
                     .style("opacity", 0);
+                barChart.transition()
+                    .duration(200)
+                    .style("opacity", 0);
+                barChart.selectAll("rect")
+                    .remove(); // Removes former bar data
+                barChart.selectAll("text")
+                    .remove();
             });
     
         // Display date range
@@ -194,17 +223,17 @@ function plotData() {
         
     
         // Create numbers for legend
-        let divideTotal = (scaleMax - scaleMin) / 8;
-        let legendNumbers = [scaleMin];
+        let divideTotal = (carbonScaleMax - carbonScaleMin) / 8;
+        let legendNumbers = [carbonScaleMin];
         for (let i = 1; i < colorBrewer.length - 1; i++) {
-            let tempNumber = scaleMin + (divideTotal * i); // Create next array item and check if whole number, if not, round to 2 decimals
+            let tempNumber = carbonScaleMin + (divideTotal * i); // Create next array item and check if whole number, if not, round to 2 decimals
             if (tempNumber === Math.round(tempNumber)) {
                 legendNumbers.push(tempNumber);
             } else {
                 legendNumbers.push(tempNumber.toFixed(2));
             };
         };
-        legendNumbers.push(scaleMax);
+        legendNumbers.push(carbonScaleMax);
     
         // Create legend squares
         legend.selectAll("rect")
