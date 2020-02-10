@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald|Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Martel+Sans|Poppins&display=swap');
 
 @keyframes fadeIn {
     0% {
@@ -28,7 +28,7 @@
 }
 
 html {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Martel Sans', sans-serif;
     overflow: hidden;
     height: 100%;
     font-weight: 200;
@@ -57,6 +57,7 @@ h2 {
     border: 0.2vh solid white;
     border-radius: 0.7vh;
     color: white;
+    font-size: calc(0.6em + 0.5vw);
 }
 
 #tooltipText {
@@ -68,22 +69,74 @@ h2 {
     height: 30vh;
     width: 10vw;
     top: 20vh;
-    right: 0vw;
+    right: 8vw;
 }
 
 .legendText {
     fill: #cccbcb;
-    font-size: calc(0.2em + 0.5vw);
+    font-size: calc(0.1em + 0.5vw);
 }
 
 #legendLabel {
     position: absolute;
     top: 16vh;
     width: 10vw;
-    right: 0vw;
+    right: 8vw;
     animation: fadeIn 0.5s linear 1.5s 1 both;
 }
 
 .regions {
     stroke: none;
+}
+
+#sliderBox {
+    position: absolute;
+    top: 20vh;
+    left: 5vw;
+    padding: 1vh 1vw;
+    font-size: calc(0.6em + 0.5vw);
+}
+
+#slider {
+    -webkit-appearance: none;
+    width: 20vw;
+    height: 2.5vh;
+    background: #cccbcb;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+#slider:hover {
+    opacity: 1;
+}
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0.1vh solid #20262e;
+    width: 2.5vh;
+    height: 2.5vh;
+    background: #0b5164;
+    cursor: pointer;
+}
+
+#slider::-moz-range-thumb {
+    border: 0.1vh solid #20262e;
+    width: 2.5vh;
+    height: 2.5vh;
+    background: #0b5164;
+    cursor: pointer;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 5vw;
+}
+
+footer a {
+    text-decoration: none;
+    color: #cccbcb;
 }

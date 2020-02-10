@@ -9,17 +9,25 @@
     </head>
 
     <body>
-        <h1>England, Scotland and Wales Carbon Use</h1>
-        <h2>Subtitle</h2>
+        <h1>England, Scotland and Wales Carbon Intensity</h1>
 
         <div id="root">
             <div id="legendLabel">gCO<sub>2</sub>/kWh</div>
             <svg id="legend" viewbox="0 0 50 150" preserveAspectRatio="xMinYMin meet"></svg>            
             <svg id="map" viewbox="0 0 960 600" preserveAspectRatio="xMinYMin meet" width="80%"></svg>
+
+            <div id="sliderBox">
+                <input type="range" orient="vertical" min="1" max="24" value="24" id="slider">
+                <p id="timeDisplay">Current time</p>
+                <div id="dateDisplay"></div>
+            </div>  
         </div>
 
         <script src="https://d3js.org/d3.v5.js"></script>
         <script src="http://d3js.org/topojson.v1.min.js"></script> <!-- Loads topoJSON -->     
         <script src="./components/main.js"></script>
     </body>
+    <footer>
+        <p>Data provided by National Grid, via the <a href="https://api.carbonintensity.org.uk/" target="_blank" rel="noopener noreferrer" title="carbonintensity.org.uk">Carbon Intensity API</a>.</p>
+    </footer>
 </html>
