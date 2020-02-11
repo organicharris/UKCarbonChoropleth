@@ -1,0 +1,44 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes linkHover {
+    0% {
+        color: #cccbcb;
+    }
+    100% {
+        color: #CC4952;
+    }
+}
+
+@keyframes linkNotHover {
+    0% {
+        color: #CC4952;
+    }
+    100% {
+        color: #cccbcb;
+    }
+}
+
+@keyframes siteHover {
+    0% {
+        color: #0b5164;
+    }
+    100% {
+        color: #CC4952;
+    }
+}
+
+@keyframes siteNotHover {
+    0% {
+        color: #CC4952;
+    }
+    100% {
+        color: #0b5164;
+    }
+}

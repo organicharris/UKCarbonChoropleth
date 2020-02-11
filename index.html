@@ -3,7 +3,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link href="./components/styles.css" rel="stylesheet" />
+        <link href="./components/main.css" rel="stylesheet" />
+        <link href="./components/mediaCalls.css" rel="stylesheet" />
+        <link href="./components/animations.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
 
         <title>UK Carbon</title>
@@ -13,16 +15,12 @@
         <noscript>You need to enable JavaScript to run this page.</noscript>
         <h1>England, Scotland and Wales Carbon Intensity</h1>
 
-        <div id="links">
-            <a id="homepage" href="https://craigharrison.dev" target="_blank" rel="noopener noreferrer" title="Craig Harrison">craigharrison.dev</a>
-            <a id="gitHub" href="https://github.com/organicharris/UKCarbonChoropleth" target="_blank" rel="noopener noreferrer" title="Source Code on GitHub"><i class="fab fa-github-square"></i></a>
-        </div>
-
         <div id="root">
             <div id="legendLabel">gCO<sub>2</sub>/kWh</div>
             <svg id="legend" viewbox="0 0 50 150" preserveAspectRatio="xMinYMin meet"></svg>            
-            <svg id="map" viewbox="0 0 960 600" preserveAspectRatio="xMinYMin meet" width="80%"></svg>
-            <svg id="barChart" viewbox="0 0 300 300" preserveAspectRatio="xMinYMin meet"></svg>
+            <!--<svg id="map" viewbox="0 0 960 600" preserveAspectRatio="xMinYMin meet"></svg>-->
+            <svg id="map" viewbox="320 0 400 620" preserveAspectRatio="xMinYMin meet"></svg>
+            <svg id="barChart" viewbox="0 0 320 100" preserveAspectRatio="xMinYMin meet"></svg>
 
             <div id="sliderBox">
                 <input type="range" orient="vertical" min="1" max="24" value="24" id="slider">
@@ -36,6 +34,10 @@
         <script src="./components/main.js"></script>
     </body>
     <footer>
-        <p>Data provided by National Grid, via the <a href="https://api.carbonintensity.org.uk/" target="_blank" rel="noopener noreferrer" title="carbonintensity.org.uk">Carbon Intensity API</a>.</p>
+            <p>Data provided by National Grid, via the <a href="https://api.carbonintensity.org.uk/" target="_blank" rel="noopener noreferrer" title="carbonintensity.org.uk" id="apiLink">Carbon Intensity API</a>.</p>
+        <div class="links">
+            <a id="gitHub" href="https://github.com/organicharris/UKCarbonChoropleth" target="_blank" rel="noopener noreferrer" title="Source Code on GitHub"><i class="fab fa-github-square"></i></a>
+            <a id="homepage" href="https://craigharrison.dev" target="_blank" rel="noopener noreferrer" title="Craig Harrison">craigharrison.dev</a>
+        </div>
     </footer>
 </html>

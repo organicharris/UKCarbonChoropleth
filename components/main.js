@@ -135,7 +135,7 @@ function plotData() {
             .attr("d", path)
             .attr("class", "regions")
             .attr("id", d => d.properties.name)
-            .style("animation", (d,i) => "fadeIn 0.5s linear " + (0.5 + (i / 10)) + "s 1 both")
+            .style("animation", (d,i) => "fadeIn 0.2s linear " + (0.5 + (i / 10)) + "s 1 both")
             .style("fill", mapD => {
                 // Format shortname correctly
                 let comparison = correctShortname(mapD.properties.name);
@@ -162,7 +162,7 @@ function plotData() {
                     .style("top", (d3.event.pageY - 30) + "px");
                 tooltipText.transition()
                     .duration(200)
-                    .style("opacity", 1);
+                    .style("opacity", 0.9);
                 tooltipText.html(function() {
                     let comparison = correctShortname(mapD.properties.name);
                     const match = carbonDataset.filter(carbonD => carbonD.shortname === comparison); // Filter dataset to match shortname
@@ -171,7 +171,7 @@ function plotData() {
                 // Shows bar chart
                 barChart.transition()
                     .duration(200)
-                    .style("opacity", 1);
+                    .style("opacity", 0.9);
                 barChart.selectAll("rect")
                     .data(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix)
                     .enter()
@@ -179,7 +179,7 @@ function plotData() {
                     .attr("width", d => {
                         let percScale = d3.scaleLinear()
                         .domain([d3.min(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix, d => d.perc), d3.max(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix, d => d.perc)])
-                        .range([0, 250]);
+                        .range([0, 150]);
                         return percScale(d.perc);
                     })
                     .attr("height", 25)
@@ -191,13 +191,12 @@ function plotData() {
                     .enter()
                     .append("text")
                     .attr("y", (d, i) => 18 + (i * 30))
-                    .attr("x", 270)
-                    .style("fill", "#cccbcb")
-                    .style("Font-size", "calc(0.4em + 0.5vw")
+                    .attr("x", 170)
+                    .attr("class", "barChartText")
                     .text(d => d.fuel + ": " + d.perc + "%");
             })
 
-            // Hides tooltip
+            // Hides tooltip and bar chart
             .on("mouseout", d => {
                 tooltipBackground.transition()
                     .duration(200)
