@@ -17,9 +17,16 @@ body {
 }
 
 h1 {
-    margin: 5vh auto 2vh;
     width: 95vw;
-    font-size: calc(2em + 0.5vw);
+    font-size: calc(1.8em + 0.5vw);
+}
+
+h2 {
+    font-size: calc(0.7em + 0.5vw);
+}
+
+#root {
+    position: relative;
 }
 
 #map {
@@ -33,9 +40,9 @@ h1 {
 #tooltipBackground {
     position: absolute;
     background-color: #0b5164;
-    border: 0.2vh solid white;
+    border: 0.2vh solid #fff;
     border-radius: 0.7vh;
-    color: white;
+    color: #fff;
     font-size: calc(1.2em + 0.5vw);
 }
 
@@ -48,7 +55,7 @@ h1 {
     position: absolute;
     height: 40vh;
     width: 20vw;
-    top: 12vh;
+    top: 5vh;
     right: 4vw;
 }
 
@@ -59,7 +66,7 @@ h1 {
 
 #legendLabel {
     position: absolute;
-    top: 10vh;
+    top: 3vh;
     width: 10vw;
     right: 4vw;
     font-size: calc(1em + 0.5vw);
@@ -68,30 +75,35 @@ h1 {
 
 #barChart {
     position: absolute;
-    top: 40vh;
+    top: 20vh;
     left: 2vw;
     opacity: 0;
     padding: 1vh 1vw;
     width: 40vw;
-    height: 18vh;
+    height: 17vh;
     background-color: #0b5164;
-    border: 0.2vh solid white;
+    border: 0.2vh solid #fff;
     border-radius: 0.7vh;
-    color: white;
+    color: #fff;
 }
 
 .barChartText {
-    fill: #cccbcb;
+    fill: #fff;
     Font-size: calc(0.9em + 0.5vw);
 }
 
 #sliderBox {
     padding: 1vh 1vw;
-    /*animation: fadeIn 0.5s linear 2s 1 both;*/
+    border: 0.1vh solid #fff;
+    border-radius: 1vh;
+    width: 95vw;
+    margin: 0 auto;
+    animation: fadeIn 0.5s linear 2s 1 both;
 }
 
 #timeDisplay {
     font-size: calc(2em + 0.5vw);
+    color: #CC4952;
 }
 
 #dateDisplay {
@@ -126,7 +138,7 @@ h1 {
 }
 
 footer {
-    /*animation: fadeIn 1s linear 1s 1 both;*/
+    animation: fadeIn 1s linear 1s 1 both;
 }
 
 footer p {
@@ -136,7 +148,6 @@ footer p {
 }
 
 #apiLink {
-    text-decoration: none;
     color: #cccbcb;
 }
 

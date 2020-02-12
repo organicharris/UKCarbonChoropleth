@@ -88,8 +88,18 @@ slider.addEventListener("change", () => {
     }, 100);
 
     carbonArrayIndex = (slider.value * 2) - 1;
+    // Clear bar chart data
+    barChart.transition()
+        .duration(200)
+        .style("opacity", 0);
+    barChart.selectAll("rect")
+        .remove(); // Removes former bar data
+    barChart.selectAll("text")
+        .remove();
+    
     // Call plotData function to update
     plotData();
+
 });
 
 
@@ -159,7 +169,7 @@ function plotData() {
                     .duration(200)
                     .style("opacity", 0.9)
                     .style("left", (d3.event.pageX + 50) + "px")
-                    .style("top", (d3.event.pageY - 30) + "px");
+                    .style("top", (d3.event.pageY - 250) + "px");
                 tooltipText.transition()
                     .duration(200)
                     .style("opacity", 0.9);

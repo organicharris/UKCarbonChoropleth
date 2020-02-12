@@ -1,21 +1,13 @@
-@media (min-width: 600px) {
-    /* For tablet in portrait */
-
-}
-
-@media (min-width: 768px) {
-    /* For tablet in landscape */
-
-}
-
 @media (min-width: 1024px) {
     /* For desktop */
     h1 {
-        font-size: calc(1.3em + 0.5vw);
+        font-size: calc(1.4em + 0.5vw);
     }
 
     #map {
         width: 30vw;
+        float: left;
+        margin: 2vh 0 0 10vw;
     }
 
     #tooltipBackground {
@@ -29,8 +21,8 @@
     #legend {
         height: 30vh;
         width: 10vw;
-        top: 20vh;
-        right: 8vw;
+        top: 16vh;
+        left: 4vw;
     }
 
     .legendText {
@@ -38,15 +30,17 @@
     }
 
     #legendLabel {
-        top: 16vh;
-        right: 8vw;
+        top: 13vh;
+        left: 4vw;
         font-size: calc(0.5em + 0.5vw);
     }
 
     #barChart {
-        width: 30vw;
-        height: 38vh;
+        width: 28vw;
+        height: 32vh;
         padding: 2vh 1vw;
+        top: 30vh;
+        left: 64vw;
     }
 
     .barChartText {
@@ -55,21 +49,22 @@
 
     #sliderBox {
         position: absolute;
-        top: 20vh;
-        left: 5vw;
+        top: 5vh;
+        left: 55vw;
+        width: 40vw;
     }
 
     #timeDisplay {
-        font-size: calc(1em + 0.5vw);
+        font-size: calc(0.8em + 0.5vw);
     }
     
     #dateDisplay {
-        font-size: calc(0.4em + 0.5vw);
+        font-size: calc(0.6em + 0.5vw);
     }
 
     #slider {
         -webkit-appearance: none;
-        width: 20vw;
+        width: 35vw;
         height: 2.5vh;
         background: #cccbcb;
         outline: none;
@@ -98,6 +93,10 @@
         cursor: pointer;
     }
 
+    footer {
+        position: absolute;
+        bottom: 2vh;
+    }
 
     footer p {
         font-size: calc(0.7em + 0.5vw);
@@ -126,13 +125,11 @@
 
 @media (min-width: 1400px) {
     /* For retina desktop, etc. */
-/*
     #map {
-        width: 20vw;
+        width: 25vw;
     }
 
     .legendText {
         font-size: calc(0.1em + 0.4vw);
     }
-*/
 }
