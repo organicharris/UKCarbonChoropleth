@@ -1,76 +1,79 @@
 @media (min-width: 1024px) {
     /* For desktop */
     h1 {
-        font-size: calc(1.4em + 0.5vw);
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    header {
+        height: 19vh;
     }
 
     #map {
-        width: 30vw;
+        height: 54vh;
         float: left;
-        margin: 2vh 0 0 10vw;
-    }
-
-    #tooltipBackground {
-        font-size: calc(0.6em + 0.5vw);
+        margin: 2vh 0 0 20vw;
     }
 
     #tooltipText {
-        font-size: calc(0.5em + 0.5vw);
+        font-size: 1.2rem;
     }
 
     #legend {
         height: 30vh;
         width: 10vw;
         top: 16vh;
-        left: 4vw;
+        left: 14vw;
     }
 
     .legendText {
-        font-size: calc(0.1em + 0.5vw);
+        font-size: 0.7rem;
     }
 
     #legendLabel {
         top: 13vh;
-        left: 4vw;
-        font-size: calc(0.5em + 0.5vw);
+        left: 14vw;
+        font-size: 1.2rem;
     }
 
     #barChart {
-        width: 28vw;
-        height: 32vh;
-        padding: 2vh 1vw;
-        top: 30vh;
-        left: 64vw;
+        width: 32vw;
+        height: 43vh;
+        top: 7vh;
+        left: 62vw;
+        border: none;
+        background: none;
     }
 
     .barChartText {
-        Font-size: calc(0.4em + 0.5vw);
+        font-size: 1rem;
     }
 
     #sliderBox {
         position: absolute;
-        top: 5vh;
-        left: 55vw;
-        width: 40vw;
-    }
-
-    #timeDisplay {
-        font-size: calc(0.8em + 0.5vw);
+        bottom: 0;
+        left: 0;
+        width: 50vw;
+        margin: 0;
+        padding: 0;
+        height: 15vh;
+        font-size: 1.3rem;
     }
     
-    #dateDisplay {
-        font-size: calc(0.6em + 0.5vw);
+    #sliderBox p {
+        margin-top: -1vh;
     }
 
     #slider {
-        -webkit-appearance: none;
         width: 35vw;
         height: 2.5vh;
-        background: #cccbcb;
-        outline: none;
         opacity: 0.7;
         -webkit-transition: 0.2s;
         transition: opacity 0.2s;
+        margin-top: 2vh;
     }
     
     #slider:hover {
@@ -78,28 +81,31 @@
     }
     
     #slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
         width: 2.5vh;
         height: 2.5vh;
-        background: #0b5164;
-        cursor: pointer;
     }
     
     #slider::-moz-range-thumb {
         width: 2.5vh;
         height: 2.5vh;
-        background: #0b5164;
-        cursor: pointer;
     }
 
     footer {
         position: absolute;
-        bottom: 2vh;
+        bottom: 0;
+        right: 0;
+        font-size: 1.5rem;
+        width: 50vw;
+        margin: 0;
+        height: 15vh;
+        background-color: #008080;
+        border-top: 0.2vh solid #fff;
+        border-bottom: 0.2vh solid #fff;
     }
 
     footer p {
-        font-size: calc(0.7em + 0.5vw);
+        float: right;
+        margin-right: 2vw;
     }
 
     #apiLink:hover {
@@ -111,7 +117,7 @@
     }
 
     #homepage, #gitHub {
-        font-size: calc(1.1em + 0.5vw);
+        font-size: 2rem;
     }
 
     #homepage:hover, #gitHub:hover {
@@ -120,16 +126,5 @@
     
     #homepage:not(:hover), #gitHub:not(:hover) {
         animation: siteNotHover 1s linear 0s 1 both;
-    }
-}
-
-@media (min-width: 1400px) {
-    /* For retina desktop, etc. */
-    #map {
-        width: 25vw;
-    }
-
-    .legendText {
-        font-size: calc(0.1em + 0.4vw);
     }
 }

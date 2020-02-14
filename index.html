@@ -8,37 +8,43 @@
         <link href="./components/animations.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
 
-        <title>UK Carbon</title>
+        <title>UK Carbon Intensity</title>
     </head>
 
     <body>
-        <noscript>You need to enable JavaScript to run this page.</noscript>
-        <h1>England, Scotland and Wales Carbon Intensity</h1>
-        <h2><i class="far fa-hand-pointer"></i>&nbsp;&nbsp;&nbsp;Tap the map for more information</h2>
-
-        <div id="root">
-            <div id="legendLabel">gCO<sub>2</sub>/kWh</div>
-            <svg id="legend" viewbox="0 0 50 150" preserveAspectRatio="xMinYMin meet"></svg>            
-            <svg id="map" viewbox="320 0 400 620" preserveAspectRatio="xMinYMin meet"></svg>
-            <svg id="barChart" viewbox="0 0 320 100" preserveAspectRatio="xMinYMin meet"></svg>
-
+        <header>
+            <noscript>You need to enable JavaScript to run this page.</noscript>
+    
+            <h1>England, Scotland and Wales Carbon Intensity</h1>
+            <h2><i class="far fa-hand-pointer"></i>&nbsp;&nbsp;&nbsp;Tap the map for more information</h2>
+        </header>
+        
+        <main>
+            <div id="root">
+                <div id="legendLabel">gCO<sub>2</sub>/kWh</div>
+                <svg id="legend" viewbox="0 0 50 150" preserveAspectRatio="xMinYMin meet"></svg>            
+                <svg id="map" viewbox="320 0 400 620" preserveAspectRatio="xMinYMin meet"></svg>
+                <svg id="barChart" viewbox="0 0 320 100" preserveAspectRatio="xMinYMin meet"></svg>
+            </div>
+            
             <div id="sliderBox">
-                <input type="range" orient="vertical" min="1" max="24" value="24" id="slider">
+                <input type="range" min="1" max="24" value="24" id="slider">
                 <p><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;move the slider to change the time range</p>
-                <p id="timeDisplay">Current time</p>
-                <div id="dateDisplay"></div>
+                <p id="dateDisplay"></p>
             </div>  
-        </div>
+        </main>
+        
+        <footer>
+            <p>Data provided by National Grid, via the <a href="https://carbonintensity.org.uk/" target="_blank" rel="noopener noreferrer" title="carbonintensity.org.uk" id="apiLink">Carbon Intensity API</a>.</p>
+            
+            <div class="links">
+                <a id="gitHub" href="https://github.com/organicharris/UKCarbonChoropleth" target="_blank" rel="noopener noreferrer" title="Source Code on GitHub"><i class="fab fa-github-square"></i></a>
+                <a id="homepage" href="https://craigharrison.dev" target="_blank" rel="noopener noreferrer" title="Craig Harrison">craigharrison.dev</a>
+            </div>
+        </footer>
 
         <script src="https://d3js.org/d3.v5.js"></script>
         <script src="https://unpkg.com/topojson@3"></script>    
         <script src="./components/main.js"></script>
     </body>
-    <footer>
-            <p>Data provided by National Grid, via the <a href="https://api.carbonintensity.org.uk/" target="_blank" rel="noopener noreferrer" title="carbonintensity.org.uk" id="apiLink">Carbon Intensity API</a>.</p>
-        <div class="links">
-            <a id="gitHub" href="https://github.com/organicharris/UKCarbonChoropleth" target="_blank" rel="noopener noreferrer" title="Source Code on GitHub"><i class="fab fa-github-square"></i></a>
-            <a id="homepage" href="https://craigharrison.dev" target="_blank" rel="noopener noreferrer" title="Craig Harrison">craigharrison.dev</a>
-        </div>
-    </footer>
 </html>

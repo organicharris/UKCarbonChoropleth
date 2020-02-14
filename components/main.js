@@ -68,24 +68,12 @@ const legend = d3.select("#legend");
 // Select bar chart SVG area
 const barChart = d3.select("#barChart");
 
-// Select time and date display area
-const timeDisplay = document.getElementById("timeDisplay");
+// Select date display area
 const dateDisplay = d3.select("#dateDisplay");
 
 // Select slider and set up event listener
 const slider = document.getElementById("slider");
 slider.addEventListener("change", () => {
-    setInterval(() => {
-        let displayValue = "";
-        if (slider.value === "24") {
-            displayValue = "Current time";
-        } else if (slider.value === "23") {
-            displayValue = "-1 hour";
-        } else {
-            displayValue = "-" + (24-slider.value) + " hours";
-        };
-        timeDisplay.innerHTML = displayValue;
-    }, 100);
 
     carbonArrayIndex = (slider.value * 2) - 1;
     // Clear bar chart data
@@ -99,7 +87,6 @@ slider.addEventListener("change", () => {
     
     // Call plotData function to update
     plotData();
-
 });
 
 

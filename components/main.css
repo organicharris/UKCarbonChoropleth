@@ -2,35 +2,47 @@
 
 html {
     font-family: 'Martel Sans', sans-serif;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
-    height: 100%;
     font-weight: 200;
+    font-size: 12px;
 }
 
 body {
     width: 100vw;
     height: 100vh;
+    margin: 0;
     overflow: auto;
     text-align: center;
     background-color: #20262e;
     color: #cccbcb;
 }
 
+header {
+    text-align: center;
+    background-color: #008080;
+    width: 100vw;
+    height: 12vh;
+    border-top: 0.2vh solid #fff;
+    border-bottom: 0.2vh solid #fff;
+}
+
 h1 {
-    width: 95vw;
-    font-size: calc(1.8em + 0.5vw);
+    font-size: 3.2rem;
 }
 
 h2 {
-    font-size: calc(0.7em + 0.5vw);
+    font-size: 2.4rem;
 }
 
 #root {
+    margin-top: 2vh;
     position: relative;
 }
 
 #map {
-    width: 70vw;
+    width: 60vw;
 }
 
 .regions {
@@ -41,35 +53,33 @@ h2 {
     position: absolute;
     background-color: #0b5164;
     border: 0.2vh solid #fff;
-    border-radius: 0.7vh;
     color: #fff;
-    font-size: calc(1.2em + 0.5vw);
 }
 
 #tooltipText {
     padding: 0 2vw;
-    font-size: calc(0.8em + 0.5vw);
+    font-size: 2rem;
 }
 
 #legend {
     position: absolute;
-    height: 40vh;
-    width: 20vw;
+    height: 35vh;
+    width: 17.5vw;
     top: 5vh;
     right: 4vw;
 }
 
 .legendText {
     fill: #cccbcb;
-    font-size: calc(0.2em + 0.5vw);
+    font-size: 0.7rem;
 }
 
 #legendLabel {
     position: absolute;
-    top: 3vh;
+    top: 2vh;
     width: 10vw;
     right: 4vw;
-    font-size: calc(1em + 0.5vw);
+    font-size: 1.9rem;
     animation: fadeIn 0.5s linear 1.5s 1 both;
 }
 
@@ -80,45 +90,40 @@ h2 {
     opacity: 0;
     padding: 1vh 1vw;
     width: 40vw;
-    height: 17vh;
+    height: 19vh;
     background-color: #0b5164;
     border: 0.2vh solid #fff;
-    border-radius: 0.7vh;
     color: #fff;
 }
 
 .barChartText {
     fill: #fff;
-    Font-size: calc(0.9em + 0.5vw);
+    font-size: 1.6rem;
 }
 
 #sliderBox {
     padding: 1vh 1vw;
-    border: 0.1vh solid #fff;
-    border-radius: 1vh;
-    width: 95vw;
+    background-color: #008080;
+    border-top: 0.2vh solid #fff;
+    border-bottom: 0.2vh solid #fff;
+    width: 100vw;
     margin: 0 auto;
+    font-size: 2.5rem;
     animation: fadeIn 0.5s linear 2s 1 both;
 }
 
-#timeDisplay {
-    font-size: calc(2em + 0.5vw);
-    color: #CC4952;
-}
-
 #dateDisplay {
-    font-size: calc(0.8em + 0.5vw);
+    font-weight: 800;
 }
 
 #slider {
     -webkit-appearance: none;
     width: 80vw;
     height: 3vh;
-    background: #cccbcb;
+    background: #c5c5c5;
     outline: none;
-    opacity: 0.7;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
+    opacity: 1;
+    border: 0.2vh solid #fff;
 }
 
 #slider::-webkit-slider-thumb {
@@ -126,23 +131,20 @@ h2 {
     appearance: none;
     width: 3vh;
     height: 3vh;
-    background: #0b5164;
+    background: #CC4952;
     cursor: pointer;
 }
 
 #slider::-moz-range-thumb {
     width: 3vh;
     height: 3vh;
-    background: #0b5164;
+    background: #CC4952;
     cursor: pointer;
 }
 
 footer {
-    animation: fadeIn 1s linear 1s 1 both;
-}
-
-footer p {
-    font-size: calc(1.3em + 0.5vw);
+    animation: fadeIn 0.5s linear 2s 1 both;
+    font-size: 2rem;
     margin: 2vh 5vw;
     width: 90vw;
 }
@@ -158,8 +160,8 @@ footer p {
 
 #homepage, #gitHub {
     margin: 1vh 2vw;
-    font-size: calc(2.6em + 0.5vw);
+    font-size: calc(2.6rem + 0.5vw);
     text-decoration: none;
-    color: #0b5164;
+    color: #707070;
 }
 
