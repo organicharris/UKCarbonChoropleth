@@ -1,9 +1,9 @@
 // ---------------------------- INITIAL CONFIGURATION ----------------------------
 // Colours for maps (from colorbrewer2.org)
-const colorBrewer = ['#d73027','#f46d43','#fdae61','#fee08b','#ffffbf','#d9ef8b','#a6d96a','#66bd63','#1a9850'].reverse();
+const colorBrewer = ['#f7fbff','#deebf7','#c6dbef','#9ecae1','#6baed6','#4292c6','#2171b5','#08519c','#08306b'].reverse();
 
 // Colours for bar chart
-const chartColours = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6'];
+const chartColours = ['#f7fbff','#deebf7','#c6dbef','#9ecae1','#6baed6','#4292c6','#2171b5','#08519c','#08306b'];
 
 const width = 960;
 const height = 600;
@@ -182,6 +182,7 @@ function plotData() {
                     .attr("height", 25)
                     .attr("y", (d, i) => (i * 30))
                     .attr("x", 10)
+                    .attr("class", "barChartData")
                     .style("fill", (d, i) => chartColours[i]);
                 barChart.selectAll("text")
                     .data(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix)

@@ -2,6 +2,8 @@
     /* For desktop */
     h1 {
         font-size: 3rem;
+        width: 58vw;
+        margin-left: 36vw;
     }
 
     h2 {
@@ -50,13 +52,14 @@
 
     .barChartText {
         font-size: 1rem;
+        fill: #20262e;
     }
 
     #sliderBox {
         position: absolute;
         bottom: 0;
-        left: 0;
-        width: 50vw;
+        left: 5vw;
+        width: 45vw;
         margin: 0;
         padding: 0;
         height: 15vh;
@@ -68,7 +71,7 @@
     }
 
     #slider {
-        width: 35vw;
+        width: 20vw;
         height: 2.5vh;
         opacity: 0.7;
         -webkit-transition: 0.2s;
@@ -90,6 +93,10 @@
         height: 2.5vh;
     }
 
+    .sliderText {
+        padding-top: 1vh;
+    }
+
     footer {
         position: absolute;
         bottom: 0;
@@ -98,14 +105,11 @@
         width: 50vw;
         margin: 0;
         height: 15vh;
-        background-color: #008080;
-        border-top: 0.2vh solid #fff;
-        border-bottom: 0.2vh solid #fff;
     }
 
     footer p {
-        float: right;
-        margin-right: 2vw;
+        text-align: center;
+
     }
 
     #apiLink:hover {
