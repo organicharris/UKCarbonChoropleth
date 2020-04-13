@@ -12,38 +12,20 @@
         color: #cccbcb;
     }
     100% {
-        color: #20262e;
+        color: #d94801;
     }
 }
 
 @keyframes linkNotHover {
     0% {
-        color: #20262e;
+        color: #d94801;
     }
     100% {
         color: #cccbcb;
     }
 }
 
-@keyframes siteHover {
-    0% {
-        color: #0b5164;
-    }
-    100% {
-        color: #cccbcb;
-    }
-}
-
-@keyframes siteNotHover {
-    0% {
-        color: #cccbcb;
-    }
-    100% {
-        color: #0b5164;
-    }
-}
-
-@keyframes sliderWiggleMobile {
+@keyframes sliderWiggle {
     0% {
         margin-top: 0;
     }

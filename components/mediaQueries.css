@@ -1,7 +1,9 @@
 @media (min-width: 1024px) {
-    /* For desktop */
+    /* For desktop, etc. */
     h1 {
         font-size: 3rem;
+        width: 58vw;
+        margin-left: 38vw;
     }
 
     h2 {
@@ -15,7 +17,7 @@
     #map {
         height: 54vh;
         float: left;
-        margin: 2vh 0 0 20vw;
+        margin-left: 20vw;
     }
 
     #tooltipText {
@@ -50,30 +52,27 @@
 
     .barChartText {
         font-size: 1rem;
+        fill: #f1f1f1;
     }
 
     #sliderBox {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 50vw;
+        bottom: 2vh;
+        left: 5vw;
+        width: 45vw;
         margin: 0;
         padding: 0;
         height: 15vh;
         font-size: 1.3rem;
     }
-    
-    #sliderBox p {
-        margin-top: -1vh;
-    }
 
     #slider {
-        width: 35vw;
+        width: 20vw;
         height: 2.5vh;
         opacity: 0.7;
         -webkit-transition: 0.2s;
         transition: opacity 0.2s;
-        margin-top: 2vh;
+        margin-top: 0vh;
     }
     
     #slider:hover {
@@ -90,6 +89,11 @@
         height: 2.5vh;
     }
 
+    #timeDisplay {
+        width: 15vw;
+        margin-left: 15vw;
+    }
+
     footer {
         position: absolute;
         bottom: 0;
@@ -98,14 +102,10 @@
         width: 50vw;
         margin: 0;
         height: 15vh;
-        background-color: #008080;
-        border-top: 0.2vh solid #fff;
-        border-bottom: 0.2vh solid #fff;
     }
 
     footer p {
-        float: right;
-        margin-right: 2vw;
+        text-align: center;
     }
 
     #apiLink:hover {
@@ -121,10 +121,10 @@
     }
 
     #homepage:hover, #gitHub:hover {
-        animation: siteHover 1s linear 0s 1 both;
+        animation: linkHover 1s linear 0s 1 both;
     }
     
     #homepage:not(:hover), #gitHub:not(:hover) {
-        animation: siteNotHover 1s linear 0s 1 both;
+        animation: linkNotHover 1s linear 0s 1 both;
     }
 }

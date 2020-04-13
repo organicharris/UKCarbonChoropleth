@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Martel+Sans|Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Rubik&family=Poppins&display=swap');
 
 html {
-    font-family: 'Martel Sans', sans-serif;
+    font-family: 'Karla', sans-serif;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -16,28 +16,33 @@ body {
     overflow: auto;
     text-align: center;
     background-color: #20262e;
-    color: #cccbcb;
+    color: #f1f1f1;
 }
 
 header {
-    text-align: center;
-    background-color: #008080;
+    text-align: right;
     width: 100vw;
     height: 12vh;
-    border-top: 0.2vh solid #fff;
-    border-bottom: 0.2vh solid #fff;
 }
 
 h1 {
     font-size: 3.2rem;
+    font-family: 'Rubik', sans-serif;
+    background-color: #2171b5;
+    color: #f7f7f7;
+    padding: 1vh 2vw;
+    width: 88vw;
+    margin-left: 8vw;
+    margin-top: 0;
+    border-radius: 0 0 0 5vh;
 }
 
 h2 {
     font-size: 2.4rem;
+    padding-right: 7vw;
 }
 
 #root {
-    margin-top: 2vh;
     position: relative;
 }
 
@@ -45,15 +50,11 @@ h2 {
     width: 60vw;
 }
 
-.regions {
-    stroke: none;
-}
-
 #tooltipBackground {
     position: absolute;
-    background-color: #0b5164;
-    border: 0.2vh solid #fff;
+    background-color: #d94801;
     color: #fff;
+    border-radius: 0 0 0 2vh;
 }
 
 #tooltipText {
@@ -70,7 +71,7 @@ h2 {
 }
 
 .legendText {
-    fill: #cccbcb;
+    fill: #f1f1f1;
     font-size: 0.7rem;
 }
 
@@ -91,9 +92,9 @@ h2 {
     padding: 1vh 1vw;
     width: 40vw;
     height: 19vh;
-    background-color: #0b5164;
-    border: 0.2vh solid #fff;
+    background-color: #d94801;
     color: #fff;
+    border-radius: 0 0 0 1vh;
 }
 
 .barChartText {
@@ -103,17 +104,16 @@ h2 {
 
 #sliderBox {
     padding: 1vh 1vw;
-    background-color: #008080;
-    border-top: 0.2vh solid #fff;
-    border-bottom: 0.2vh solid #fff;
-    width: 100vw;
-    margin: 0 auto;
     font-size: 2.5rem;
     animation: fadeIn 0.5s linear 2s 1 both;
 }
 
-#dateDisplay {
-    font-weight: 800;
+#timeDisplay {
+    background-color: #d94801;
+    color: #fff;
+    border-radius: 0 0 0 1vh;
+    width: 25vw;
+    margin-left: 37.5vw;
 }
 
 #slider {
@@ -123,7 +123,8 @@ h2 {
     background: #c5c5c5;
     outline: none;
     opacity: 1;
-    border: 0.2vh solid #fff;
+    border-radius: 0 0 0 1vh;
+    animation: sliderWiggle 0.5s linear 2.5s 1 both;
 }
 
 #slider::-webkit-slider-thumb {
@@ -131,21 +132,23 @@ h2 {
     appearance: none;
     width: 3vh;
     height: 3vh;
-    background: #CC4952;
+    background: #d94801;
     cursor: pointer;
+    border-radius: 0 0 0 1vh;
 }
 
 #slider::-moz-range-thumb {
     width: 3vh;
     height: 3vh;
-    background: #CC4952;
+    background: #d94801;
     cursor: pointer;
+    border-radius: 0 0 0 1vh;
 }
 
 footer {
     animation: fadeIn 0.5s linear 2s 1 both;
     font-size: 2rem;
-    margin: 2vh 5vw;
+    margin: 0 5vw;
     width: 90vw;
 }
 
@@ -156,12 +159,12 @@ footer {
 .links {
     float: right;
     font-family: 'Poppins', sans-serif;
+    padding-right: 2vw;
 }
 
 #homepage, #gitHub {
-    margin: 1vh 2vw;
+    margin: 0 2vw;
     font-size: calc(2.6rem + 0.5vw);
     text-decoration: none;
     color: #707070;
 }
-

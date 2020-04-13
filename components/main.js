@@ -1,9 +1,6 @@
 // ---------------------------- INITIAL CONFIGURATION ----------------------------
 // Colours for maps (from colorbrewer2.org)
-const colorBrewer = ['#d73027','#f46d43','#fdae61','#fee08b','#ffffbf','#d9ef8b','#a6d96a','#66bd63','#1a9850'].reverse();
-
-// Colours for bar chart
-const chartColours = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6'];
+const colorBrewer = ['#f7fbff','#deebf7','#c6dbef','#9ecae1','#6baed6','#4292c6','#2171b5','#08519c','#08306b'];
 
 const width = 960;
 const height = 600;
@@ -68,12 +65,27 @@ const legend = d3.select("#legend");
 // Select bar chart SVG area
 const barChart = d3.select("#barChart");
 
+// Select time and date display area
+const timeDisplay = document.getElementById("timeDisplay");
+
 // Select date display area
 const dateDisplay = d3.select("#dateDisplay");
 
 // Select slider and set up event listener
 const slider = document.getElementById("slider");
 slider.addEventListener("change", () => {
+
+    setInterval(() => {
+        let displayValue = "";
+        if (slider.value === "24") {
+            displayValue = "Current time";
+        } else if (slider.value === "23") {
+            displayValue = "-1 hour";
+        } else {
+            displayValue = "-" + (24-slider.value) + " hours";
+        };
+        timeDisplay.innerHTML = displayValue;
+    }, 100);
 
     carbonArrayIndex = (slider.value * 2) - 1;
     // Clear bar chart data
@@ -182,7 +194,8 @@ function plotData() {
                     .attr("height", 25)
                     .attr("y", (d, i) => (i * 30))
                     .attr("x", 10)
-                    .style("fill", (d, i) => chartColours[i]);
+                    .attr("class", "barChartData")
+                    .style("fill", (d, i) => colorBrewer[i]);
                 barChart.selectAll("text")
                     .data(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix)
                     .enter()
