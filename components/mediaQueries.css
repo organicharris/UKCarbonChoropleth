@@ -121,10 +121,10 @@
     }
 
     #homepage:hover, #gitHub:hover {
-        animation: linkHover 1s linear 0s 1 both;
+        animation: siteHover 1s linear 0s 1 both;
     }
     
     #homepage:not(:hover), #gitHub:not(:hover) {
-        animation: linkNotHover 1s linear 0s 1 both;
+        animation: siteNotHover 1s linear 0s 1 both;
     }
 }
