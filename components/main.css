@@ -90,8 +90,8 @@ h2 {
     left: 2vw;
     opacity: 0;
     padding: 1vh 1vw;
-    width: 40vw;
-    height: 19vh;
+    width: 42vw;
+    height: 21vh;
     background-color: #d94801;
     color: #fff;
     border-radius: 0 0 0 1vh;
@@ -123,7 +123,7 @@ h2 {
     background: #c5c5c5;
     outline: none;
     opacity: 1;
-    border-radius: 0 0 0 1vh;
+    border-radius: 2vh;
     animation: sliderWiggle 0.5s linear 2.5s 1 both;
 }
 
@@ -134,7 +134,7 @@ h2 {
     height: 3vh;
     background: #d94801;
     cursor: pointer;
-    border-radius: 0 0 0 1vh;
+    border-radius: 2vh;
 }
 
 #slider::-moz-range-thumb {
@@ -142,7 +142,7 @@ h2 {
     height: 3vh;
     background: #d94801;
     cursor: pointer;
-    border-radius: 0 0 0 1vh;
+    border-radius: 2vh;
 }
 
 footer {
