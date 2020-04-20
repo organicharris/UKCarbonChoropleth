@@ -37,9 +37,10 @@ h1 {
     border-radius: 0 0 0 5vh;
 }
 
-h2 {
+.subHeading {
     font-size: 2.4rem;
     padding-right: 7vw;
+    animation: subHeadingWiggle 0.8s linear 3.5s 1 both;
 }
 
 #root {
@@ -84,22 +85,30 @@ h2 {
     animation: fadeIn 0.5s linear 1.5s 1 both;
 }
 
-#barChart {
-    position: absolute;
-    top: 20vh;
+#dataDetail {
+    position: fixed;
+    top: 25vh;
     left: 2vw;
     opacity: 0;
-    padding: 1vh 1vw;
-    width: 42vw;
-    height: 21vh;
+    padding: 0 1vw;
+    width: 30vw;
+    height: auto;
     background-color: #d94801;
     color: #fff;
-    border-radius: 0 0 0 1vh;
+    border-radius: 0 0 0 5vh;
+    z-index: 3;
+    
+}    
+
+.dataDetailTitle {
+    width: 30vw;
+    text-align: center;
+    font-size: calc(1.2em + 0.5vw);
 }
 
-.barChartText {
-    fill: #fff;
-    font-size: 1.6rem;
+.dataDetailContent {
+    text-align: right;
+    font-size: calc(1.4em + 0.5vw);
 }
 
 #sliderBox {
@@ -124,7 +133,7 @@ h2 {
     outline: none;
     opacity: 1;
     border-radius: 2vh;
-    animation: sliderWiggle 0.5s linear 2.5s 1 both;
+    animation: sliderWiggle 0.8s linear 2.5s 1 both;
 }
 
 #slider::-webkit-slider-thumb {

@@ -62,8 +62,8 @@ const path = d3.geoPath()
 // Select legend SVG area
 const legend = d3.select("#legend");
 
-// Select bar chart SVG area
-const barChart = d3.select("#barChart");
+// Select detailed data area
+const dataDetail = d3.select("#dataDetail");
 
 // Select time and date display area
 const timeDisplay = document.getElementById("timeDisplay");
@@ -88,14 +88,6 @@ slider.addEventListener("change", () => {
     }, 100);
 
     carbonArrayIndex = (slider.value * 2) - 1;
-    // Clear bar chart data
-    barChart.transition()
-        .duration(200)
-        .style("opacity", 0);
-    barChart.selectAll("rect")
-        .remove(); // Removes former bar data
-    barChart.selectAll("text")
-        .remove();
     
     // Call plotData function to update
     plotData();
@@ -177,36 +169,22 @@ function plotData() {
                     const match = carbonDataset.filter(carbonD => carbonD.shortname === comparison); // Filter dataset to match shortname
                     return "<span>" + mapD.properties.name + ": </span><br /><span>" + match[0].intensity.forecast + "gCO<sub>2</sub>/kWh</span><br />";
                 });
-                // Shows bar chart
-                barChart.transition()
+
+                dataDetail.transition()
                     .duration(200)
                     .style("opacity", 0.9);
-                barChart.selectAll("rect")
-                    .data(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix)
-                    .enter()
-                    .append("rect")
-                    .attr("width", d => {
-                        let percScale = d3.scaleLinear()
-                        .domain([d3.min(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix, d => d.perc), d3.max(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix, d => d.perc)])
-                        .range([0, 150]);
-                        return percScale(d.perc);
-                    })
-                    .attr("height", 25)
-                    .attr("y", (d, i) => (i * 30))
-                    .attr("x", 10)
-                    .attr("class", "barChartData")
-                    .style("fill", (d, i) => colorBrewer[i]);
-                barChart.selectAll("text")
-                    .data(carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix)
-                    .enter()
-                    .append("text")
-                    .attr("y", (d, i) => 18 + (i * 30))
-                    .attr("x", 170)
-                    .attr("class", "barChartText")
-                    .text(d => d.fuel + ": " + d.perc + "%");
+                dataDetail.html(() => {
+                    // Add divs for title and data (so title can be centred)
+                    let generationMixDataset = carbonDataset.filter(carbonD => carbonD.shortname === correctShortname(mapD.properties.name))[0].generationmix;
+                    let returnString = "<div class='dataDetailTitle'><h2>" + mapD.properties.name + ":<br/>" + timeDisplay.innerHTML + "</h2></div>";
+                    for (let i = 1; i < generationMixDataset.length; i++) {
+                        returnString = returnString + "<p class='dataDetailContent'>" + generationMixDataset[i].fuel + ": " + generationMixDataset[i].perc + "%</p>"
+                    };
+                    return returnString;
+                })
             })
 
-            // Hides tooltip and bar chart
+            // Hides tooltip and data
             .on("mouseout", d => {
                 tooltipBackground.transition()
                     .duration(200)
@@ -214,13 +192,10 @@ function plotData() {
                 tooltipText.transition()
                     .duration(200)
                     .style("opacity", 0);
-                barChart.transition()
+
+                dataDetail.transition()
                     .duration(200)
                     .style("opacity", 0);
-                barChart.selectAll("rect")
-                    .remove(); // Removes former bar data
-                barChart.selectAll("text")
-                    .remove();
             });
     
         // Display date range

@@ -6,7 +6,7 @@
         margin-left: 38vw;
     }
 
-    h2 {
+    .subHeading {
         font-size: 1.5rem;
     }
 
@@ -41,18 +41,21 @@
         font-size: 1.2rem;
     }
 
-    #barChart {
-        width: 32vw;
-        height: 43vh;
-        top: 7vh;
-        left: 62vw;
-        border: none;
+    #dataDetail {
+        top: 22vh;
+        left: 70vw;
+        width: 15vw;
         background: none;
+        border: 2px solid #d94801;
     }
 
-    .barChartText {
-        font-size: 1rem;
-        fill: #f1f1f1;
+    .dataDetailTitle {
+        width: 15vw;
+        font-size: calc(0.8em + 0.5vw);
+    }
+
+    .dataDetailContent {
+        font-size: calc(0.9em + 0.5vw);
     }
 
     #sliderBox {
